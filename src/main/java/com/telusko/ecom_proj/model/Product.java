@@ -1,5 +1,6 @@
 package com.telusko.ecom_proj.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,6 +14,7 @@ public class Product {
     private double price;
     private String description;
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "category_id")
     private Category category;
 

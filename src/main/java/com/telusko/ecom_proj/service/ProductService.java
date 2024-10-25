@@ -26,7 +26,7 @@ public class ProductService {
         productRepo.save(product);
     }
 
-    public ProductDto getEProductDto(Product product) {
+    public ProductDto getProductDto(Product product) {
         ProductDto productDto = new ProductDto();
         productDto.setDescription(product.getDescription());
         productDto.setImageUrl(product.getImageUrl());
@@ -41,7 +41,7 @@ public class ProductService {
         List<Product> allProducts = productRepo.findAll();
         List<ProductDto> productDtos = new ArrayList<>();
         for (Product product : allProducts) {
-            productDtos.add(getEProductDto(product));
+            productDtos.add(getProductDto(product));
         }
         return productDtos;
     }
