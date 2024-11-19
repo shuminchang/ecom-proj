@@ -1,6 +1,7 @@
 package com.telusko.ecom_proj.service;
 
 import com.telusko.ecom_proj.dto.ProductDto;
+import com.telusko.ecom_proj.exceptions.ProductNotExistsException;
 import com.telusko.ecom_proj.model.Category;
 import com.telusko.ecom_proj.model.Product;
 import com.telusko.ecom_proj.repo.ProductRepo;
@@ -58,5 +59,13 @@ public class ProductService {
         product.setName(productDto.getName());
         product.setPrice(productDto.getPrice());
         productRepo.save(product);
+    }
+
+    public Product findById(Integer productId) throws ProductNotExistsException {
+        Optional<Product> optionalProduct = productRepo.findById(productId);
+        if (optionalProduct.isEmpty()) {
+            throw new ProductNotExistsException("product id is invalid: " + productId);
+        }
+        return optionalProduct.get();
     }
 }
