@@ -50,7 +50,7 @@ public class CartService {
 
         CartDto cartDto = new CartDto();
         cartDto.setTotalCost(totalCost);
-        cartDto.setCartItem(cartItems);
+        cartDto.setCartItems(cartItems);
         return cartDto;
     }
 
