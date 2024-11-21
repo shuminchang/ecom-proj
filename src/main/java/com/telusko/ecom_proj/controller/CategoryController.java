@@ -22,7 +22,7 @@ public class CategoryController {
         return new ResponseEntity<>(new ApiResponse(true, "a new category created"), HttpStatus.CREATED);
     }
 
-    @GetMapping("/list")
+    @GetMapping("/")
     public List<Category> listCategory() {
         return categoryService.listCategory();
     }
